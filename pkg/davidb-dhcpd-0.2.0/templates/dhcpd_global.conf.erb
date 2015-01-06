@@ -1,0 +1,41 @@
+<% if @authoritative == true -%>
+authoritative;
+<% end -%>
+
+# Global configuration follows
+<% @options.sort.map do |optname,optvalue| -%>
+<% if optvalue.is_a?(Array) -%>
+option <%= optname %> <%= optvalue.join(",") %>;
+<% else -%>
+<% if optname == 'domain-name' or optname == 'filename' -%>
+option <%= optname %> "<%= optvalue %>";
+<% else -%>
+option <%= optname %> <%= optvalue %>;
+<% end -%>
+<% end -%>
+<% end -%>
+
+<% @include.each do |value| -%>
+include "<%= value %>";
+<% end -%>
+
+<% if @ddns_domainname -%>
+ddns-domainname "<%= @ddns_domainname %>";
+<% end -%>
+<% if @ddns_update_style -%>
+ddns-update-style <%= @ddns_update_style %>;
+<% end -%>
+
+<% @ddns_zones.sort.map do |zonename,data| -%>
+zone <%= zonename %> {
+<% data.sort.map do |opt,value| -%>
+  <%= opt %> <%= value %>;
+<% end -%>
+}
+<% end -%>
+<% if @omapi_port -%>
+omapi-port <%= @omapi_port %>;
+<% end -%>
+<% if @omapi_key -%>
+omapi-key <%= @omapi_key %>;
+<% end -%>

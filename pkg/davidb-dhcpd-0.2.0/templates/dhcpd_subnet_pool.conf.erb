@@ -1,0 +1,48 @@
+<%= @front_spaces %>  # pool <%= @title %>
+<%= @front_spaces %>  pool {
+<% if @allow_members_of -%>
+<% @allow_members_of.each do |member| -%>
+<%= @front_spaces %>    allow members of "<%= member %>";
+<%end-%>
+<% end -%>
+<% if @deny_members_of -%>
+<% @deny_members_of.each do |member| -%>
+<%= @front_spaces %>    deny members of "<%= member %>";
+<%end%>
+<% end -%>
+<% if @allow_known_clients == true -%>
+<%= @front_spaces %>    allow known-clients;
+<%end-%>
+<% if @allow_unknown_clients == true -%>
+<%= @front_spaces %>    allow unknown-clients;
+<%end-%>
+<% if @allow_dynamic_bootp_clients == true -%>
+<%= @front_spaces %>    allow dynamic bootp clients;
+<%end-%>
+<% if @allow_all_clients == true -%>
+<%= @front_spaces %>    allow known-clients;
+<%end-%>
+<% if @deny_known_clients == true -%>
+<%= @front_spaces %>    deny known-clients;
+<%end-%>
+<% if @deny_unknown_clients == true -%>
+<%= @front_spaces %>    deny unknown-clients;
+<%end-%>
+<% if @deny_dynamic_bootp_clients == true -%>
+<%= @front_spaces %>    deny dynamic bootp clients;
+<%end-%>
+<% if @deny_all_clients == true -%>
+<%= @front_spaces %>    deny known-clients;
+<%end-%>
+<% if @default_lease_time -%>
+<%= @front_spaces %>    default-lease-time <%= @default_lease_time -%>;
+<%end-%>
+<% if @max_lease_time -%>
+<%= @front_spaces %>    max-lease-time <%= @max_lease_time -%>;
+<%end-%>
+<% if @ranges -%>
+<% @ranges.each do |rangedata| -%>
+<%= @front_spaces %>    range <%=rangedata%>;
+<%end-%>
+<%end-%>
+<%= @front_spaces %>  }

@@ -1,0 +1,44 @@
+
+<%= @front_spaces %># subnet <%= @name %>
+<%= @front_spaces %>subnet <%= @network %> netmask <%= @netmask %> {
+<% @options.sort.map do |optname,optvalue| -%>
+<% if optvalue.is_a?(Array) -%>
+<%= @front_spaces %>  option <%= optname %> <%= optvalue.join(",") %>;
+<% else -%>
+<% if optname == 'domain-name' or optname == 'filename' -%>
+<%= @front_spaces %>  option <%= optname %> "<%= optvalue %>";
+<% else -%>
+<%= @front_spaces %>  option <%= optname %> <%= optvalue %>;
+<% end -%>
+<% end -%>
+<% end -%>
+
+<% if @ranges -%>
+<% @ranges.each do |range| -%>
+<%= @front_spaces %>  range <%= range -%>;
+<% end -%>
+<% end -%>
+<% if @next_server -%>
+<%= @front_spaces %>  next-server <%= @next_server %>;
+<% end -%>
+<% if @filename -%>
+<%= @front_spaces %>  filename "<%= @filename %>";
+<% end -%>
+<% if @deny_duplicates -%>
+<%= @front_spaces %>  deny duplicates;
+<% end -%>
+<% if @allow_duplicates -%>
+<%= @front_spaces %>  allow duplicates;
+<% end -%>
+<% if @deny_client_updates -%>
+<%= @front_spaces %>  deny client-updates;
+<% end -%>
+<% if @allow_client_updates -%>
+<%= @front_spaces %>  allow client-updates;
+<% end -%>
+<% if @update_conflict_detection -%>
+<%= @front_spaces %>  update-conflict-detection;
+<% end -%>
+<% if @disable_ddns_updates -%>
+<%= @front_spaces %>  ddns-updates off;
+<% end -%>
