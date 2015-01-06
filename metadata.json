@@ -1,0 +1,25 @@
+{
+  "name": "davidb-dhcpd",
+  "version": "0.2.0",
+  "author": "davidb",
+  "license": "Apache License, Version 2.0",
+  "summary": "An isc-dhcpd module",
+  "source": "https://github.com/david-barbion/puppet-dhcpd",
+  "project_page": "https://forge.puppetlabs.com/davidb/dhcpd",
+  "issues_url": "https://github.com/david-barbion/puppet-dhcpd/issues",
+  "tags": ["isc-dhcpd", "dhcp"],
+  "dependencies": [
+    {"name": "puppetlabs-concat", "version_requirement": ">= 1.1.0"},
+    {"name": "puppetlabs-stdlib", "version_requirement": ">= 4.2.2"}
+  ],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "5.0", "6.0", "7.0" ]
+    },
+    {
+    "operatingsystem": "CentOS",
+    "operatingsystemrelease":[ "5.0", "6.0", "7.0" ]
+    }
+  ]
+}
