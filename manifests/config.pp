@@ -51,6 +51,7 @@ $authoritative     = undef,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
+    notify  => Exec['dhcpd-config-test'],
   }
 
 
