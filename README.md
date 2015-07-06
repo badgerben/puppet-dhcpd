@@ -22,6 +22,10 @@ Currently, only Redhat and derivates are supported.
         'netbios-name-servers' => [ $::ipaddress_eth0 ],
         'domain-name'          => $::domain,
       },
+      config            => {
+        'server-identifier' => $::ipaddress,
+        'log-facility'      => 'local6',
+      },
       include           => [
         '/etc/dhcpd.conf.others',
         '/etc/named-dhcpd.key',

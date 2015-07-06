@@ -17,6 +17,10 @@
 #      'domain-name-servers'  => [ '8.8.8.8', '8.8.4.4' ],
 #      'netbios-name-servers' => [ '1.2.3.4' ],
 #    },
+#    config            => {
+#      'server-identifier' => $::ipaddress,
+#      'log-facility'      => 'local6',
+#    },
 #    include           => [
 #      '/etc/dhcpd.conf.printers',
 #      '/etc/dhcpd.conf.others',
@@ -32,6 +36,7 @@
 class dhcpd::config(
 $config_file       = '',
 $options           = {},
+$config            = {},
 $include           = [],
 $ddns_domainname   = '',
 $ddns_update_style = '',
