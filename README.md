@@ -9,6 +9,10 @@ Apache License, Version 2.0
 
 Please log tickets and issues at our [Projects site](https://github.com/david-barbion/puppet-dhcpd/issues)
 
+## Contributions
+
+Many thanks to [Jonathan Gazeley](https://github.com/djjudas21) for latest commits.
+
 ## Example usage
 
 First create the global config, this will install package if not installed.
