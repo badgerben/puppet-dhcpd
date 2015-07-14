@@ -10,6 +10,9 @@
 <%= @front_spaces %>    deny members of "<%= member %>";
 <%end%>
 <% end -%>
+<% if @failover_peer -%>
+<%= @front_spaces %>    failover peer "<%= @failover_peer %>";
+<% end -%>
 <% if @allow_known_clients == true -%>
 <%= @front_spaces %>    allow known-clients;
 <%end-%>

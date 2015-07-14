@@ -15,6 +15,7 @@ $allow_client_updates      = false,
 $update_conflict_detection = false,
 $disable_ddns_updates      = false,
 $shared_network_name       = 'global',
+$failover_peer             = undef,
 ) {
   include dhcpd::params
 
@@ -34,7 +35,7 @@ $shared_network_name       = 'global',
     order   => $order,
   }
   if $pools {
-    create_resources(dhcpd::pool, $pools, {config_file => $config_file, order => $order, subnet_name => $name, shared_network_name => $shared_network_name})
+    create_resources(dhcpd::pool, $pools, {config_file => $config_file, order => $order, subnet_name => $name, shared_network_name => $shared_network_name, failover_peer => $failover_peer})
   }
   concat::fragment { "${_shared_network_name}_2_${_subnet_name}_subnet_3":
     content => template('dhcpd/dhcpd_subnet_end.conf.erb'),

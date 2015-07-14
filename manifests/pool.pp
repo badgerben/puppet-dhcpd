@@ -10,12 +10,13 @@ $allow_dynamic_bootp_clients   = false,
 $deny_dynamic_bootp_clients    = false,
 $allow_all_clients             = false,
 $deny_all_clients              = false,
-$default_lease_time            = '',
-$max_lease_time                = '',
+$default_lease_time            = undef,
+$max_lease_time                = undef,
 $ranges                        = [],
 $order                         = '10',
 $subnet_name                   = undef,
 $shared_network_name           = 'global',
+$failover_peer                 = undef,
 ) {
   include dhcpd::params
 

@@ -1,0 +1,13 @@
+# Failover config
+failover peer "<%= @peer %>" {
+        <% if @primary = true %>primary<% else %>secondary<% end %>;
+        address <%= @address %>;
+        port <%= @port %>;
+        peer address <%= @peer_address %>;
+        peer port <%= @peer_port %>;
+        max-response-delay <%= @max_response_delay %>;
+        max-unacked-updates <%= @max_unacked_updates %>;
+        load balance max seconds <%= @load_balance_max_seconds %>;
+        mclt <%= @mclt %>;
+        split <%= @split %>;
+}
