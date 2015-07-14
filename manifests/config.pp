@@ -48,10 +48,10 @@ $authoritative     = undef,
   include dhcpd::params
 
   concat { $config_file:
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    notify  => Exec['dhcpd-config-test'],
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    notify => Exec['dhcpd-config-test'],
   }
 
 
