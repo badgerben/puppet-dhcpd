@@ -1,3 +1,6 @@
+## Version 0.3.1 (04/11/2015)
+* Fix 2 issues in failover template
+
 ## Version 0.3.0 (14/07/2015)
 * Add support for setting global parameters (@djjudas21)
 * Add support for DHCP failover (@djjudas21)
