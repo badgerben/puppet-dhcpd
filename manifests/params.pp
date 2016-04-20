@@ -12,10 +12,10 @@ class dhcpd::params {
       $package_name = 'dhcp'
       $service_name = 'dhcpd'
       case $::operatingsystemmajrelease {
-        3,4,5: {
+        '3','4','5': {
           $config_file  = '/etc/dhcpd.conf'
         }
-        6,7: {
+        '6','7': {
           $config_file  = '/etc/dhcp/dhcpd.conf'
         }
         default: {
