@@ -1,7 +1,7 @@
 define dhcpd::class (
   $config_file = $::dhcpd::config_file,
   $parameters  = undef,
-  $order       = '03',
+  $order       = '06',
 ) {
   include dhcpd::params
 
