@@ -1,19 +1,11 @@
 
 # class <%= @name %>
 class "<%= @name %>" {
-<% if @match_if -%>
-  match if <%= @match_if %>;
+<% if @parameters.is_a? Array -%>
+<% @parameters.each do |param| -%>
+  <%= param %>;
 <% end -%>
-<% if @filename -%>
-  filename "<%= @filename %>";
-<% end -%>
-<% if @next_server -%>
-  next-server <%= @next_server %>;
-<% end -%>
-<% if @default_lease_time -%>
-  default-lease-time <%= @default_lease_time %>;
-<% end -%>
-<% if @max_lease_time -%>
-  max-lease-time <%= @max_lease_time %>;
+<% elsif @parameters && !@parameters.strip.empty? -%>
+  <%= @parameters %>;
 <% end -%>
 }
