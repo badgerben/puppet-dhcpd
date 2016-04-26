@@ -33,17 +33,17 @@
 #
 # David Barbion <dbarbion@gmail.com>
 #
-class dhcpd::config(
-$config_file       = '',
-$options           = {},
-$config            = {},
-$include           = [],
-$ddns_domainname   = '',
-$ddns_update_style = '',
-$ddns_zones        = {},
-$omapi_port        = undef,
-$omapi_key         = undef,
-$authoritative     = undef,
+class dhcpd::config (
+  $config_file       = '',
+  $options           = [],
+  $config            = {},
+  $include           = [],
+  $ddns_domainname   = '',
+  $ddns_update_style = '',
+  $ddns_zones        = {},
+  $omapi_port        = undef,
+  $omapi_key         = undef,
+  $authoritative     = undef,
 ) {
   include dhcpd::params
 

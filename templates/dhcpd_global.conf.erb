@@ -12,16 +12,12 @@ authoritative;
 <% end -%>
 
 # DHCP options follow
-<% @options.sort.map do |optname,optvalue| -%>
-<% if optvalue.is_a?(Array) -%>
-option <%= optname %> <%= optvalue.join(",") %>;
-<% else -%>
-<% if optname == 'domain-name' or optname == 'filename' -%>
-option <%= optname %> "<%= optvalue %>";
-<% else -%>
-option <%= optname %> <%= optvalue %>;
+<% if @options.is_a? Array -%>
+<% @options.each do |option| -%>
+option <%= option %>;
 <% end -%>
-<% end -%>
+<% elsif @options && !@options.strip.empty? -%>
+option <%= @options %>;
 <% end -%>
 
 <% @include.each do |value| -%>
