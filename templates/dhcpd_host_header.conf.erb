@@ -1,0 +1,13 @@
+
+# host <%= @name %>
+host "<%= @name %>" {
+  hardware ethernet <%= @mac_address %>;
+<% if @ip_address -%>
+  fixed-address <%= @ip_address %>;
+<% end -%>
+<% if @ddns_updates -%>
+  ddns-updates on;
+  ddns-hostname "<%= @ddns_hostname %>";
+  ddns-domainname "<%= @ddns_domainname %>";
+<% end -%>
+}
