@@ -25,11 +25,11 @@ include "<%= value %>";
 <% end -%>
 
 <% if @keys.sort.map do |keyname,data| -%>
-  key <%= keyname %> {
+key <%= keyname %> {
 <% data.sort.map do |opt,value| -%>
-    <%= opt %> <%= value %>;
+  <%= opt %> <%= value %>;
 <% end -%>
-  }
+}
 <% end -%>
 
 <% if @ddns_domainname -%>
