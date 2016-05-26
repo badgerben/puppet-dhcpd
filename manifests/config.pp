@@ -38,6 +38,7 @@ class dhcpd::config (
   $options           = [],
   $config            = {},
   $include           = [],
+  $keys              = {},
   $ddns_domainname   = '',
   $ddns_update_style = '',
   $ddns_zones        = {},
