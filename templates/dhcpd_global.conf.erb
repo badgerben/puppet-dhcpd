@@ -24,7 +24,7 @@ option <%= @options %>;
 include "<%= value %>";
 <% end -%>
 
-<% if @keys.sort.map do |keyname,data| -%>
+<% @keys.sort.map do |keyname,data| -%>
 key <%= keyname %> {
 <% data.sort.map do |opt,value| -%>
   <%= opt %> <%= value %>;
